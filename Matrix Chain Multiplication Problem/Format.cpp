@@ -1,3 +1,5 @@
+IN memoization the matrix t[]..t[][] ...t[][][] represents -> No. of variable that are changing in function call
+
 Format : 
 
 STEPS : 
