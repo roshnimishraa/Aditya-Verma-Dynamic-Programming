@@ -87,46 +87,57 @@ STEPS
 1. Base Condition -> Initialization -> First row and col used for initialization  
 2. Recurive fun -> Iterative fun 
 3. t[n][w] will give maximum profit 
-
+4. change n -> i & w-> j
+  
 Time Complexity: O(N * W). where ‘N’ is the number of elements and ‘W’ is capacity. 
 Auxiliary Space: O(N * W). The use of a 2-D array of size ‘N*W’.
    
 class Solution
 {
     public:
-    //Function to return max value that can be put in knapsack of capacity W.
-    int knapSack(int W, int wt[], int val[], int n) 
-    { 
-        long long int t[n+1][W+1];
-        //Initialization
-    for(int i=0;i<n+1;i++){
-        for(int j=0;j<W+1;j++){
-            if(i==0 || j==0){
-                t[i][j]=0;
-            }
-        }
-    }
-    
-// Choice diagram 
+int t[1001][1001];
+int helper(int W,int wt[],int val[],int n)
+{
+  
+  for(int i=0;i<n+1;i++)
+  {
+      for(int j=0;j<W+1;j++)
+      {
+          if(i == 0 || j==0)
+          {
+         t[i][j]= 0;
+          }
+      }
+  }
+   
+     
+// i=1,j=1 because first row & first col used for initialization
 for(int i=1;i<n+1;i++)
 {
     for(int j=1;j<W+1;j++)
     {
-        if(wt[i-1] <= j)
-        {
-t[i][j] = max(val[i-1] + t[i-1][j-wt[i-1]],t[i-1][j]);
- }
-else {
-    t[i][j] = t[i-1][j];
+     if(wt[i-1] <= j)
+{
+    // take or not take
+t[i][j] = max(val[i-1] + t[i-1][j-wt[i-1]], 
+            t[i-1][j]);
 }
-       
- }
+else  {
+    //not take 
+t[i][j]=   t[i-1][j];
+}   
 }
-return t[n][W];
+}
+ return t[n][W];
+}
+    
+    int knapSack(int W, int wt[], int val[], int n) 
+    { 
+
+  helper(W,wt,val,n);
+  
     }
 };
-
-
 
 
 
