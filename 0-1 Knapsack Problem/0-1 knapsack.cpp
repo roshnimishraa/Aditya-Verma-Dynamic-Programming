@@ -1,6 +1,6 @@
 Problem Link : https://tinyurl.com/28abaoud
 
-0/1 KnapSack :  The constraint here is we can either put an item completely into the bag or cannot put it at all.
+0/1 KnapSack :  The constraint here is we can either put an item completely into the  bag or cannot put it at all.
   
 Eg. wt[] = [1 3 4 5] 
   val[] =  [1 4 5 7]
