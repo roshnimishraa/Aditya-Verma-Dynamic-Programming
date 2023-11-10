@@ -85,7 +85,9 @@ return t[n][W] = knapSack(W,wt,val,n-1);
    
 >>>>>>>>>> 3. TOP-DOWN APPROACH (Tabulation) -> ITERATIVE VERSION
      To Avoid Recursive call stack space 
-
+Time Complexity: O(N * W). where ‘N’ is the number of elements and ‘W’ is capacity. 
+Auxiliary Space: O(N * W). The use of a 2-D array of size ‘N*W’.
+   
 STEPS 
 1. Base Condition -> Initialization -> First row and col used for initialization  
 2. Recurive fun -> Iterative fun 
