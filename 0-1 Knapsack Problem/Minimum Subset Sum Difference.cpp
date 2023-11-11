@@ -37,7 +37,51 @@ when s1 = 3 => s2 = 10-2*3 = 4 = Minimum => output
 ?? How to Find Potential Candidate -> Use subset sum problem where sum = 10 return T  subset exist which are equal to 10 w.r.t to 
 size of array otherwise return false 
 
-  
+Time Complexity:  O(n*totalSum), where n is the size of the array and sum is the total sum of all elements.
+  This is because we solve each subproblem once, and there are a total of n*totalSum subproblems.
+Space Complexity: O(n*totalSum), this is due to the 2D memoization table that stores the results of subproblems.
 
+class Solution{
+  public:
+ 	int minDifference(int arr[], int n)  { 
+	 	   int sum=0;
+
+	   //range 
+	 for(int i=0;i<n;i++){
+	     sum += arr[i];
+	 }
+	 	 bool t[n+1][sum+1];
+	     //initialization
+     for(int i=0;i<n+1;i++){
+         for(int j=0;j<sum+1;j++){
+             if(i==0){
+                 t[i][j] = false;
+             }
+            if(j==0){
+                t[i][j] = true;
+            }
+         }
+     }
+     
+	   for(int i=1;i<n+1;i++){
+        for(int j=1;j<sum+1;j++){
+    
+if(j>= arr[i-1]){
+    t[i][j] = t[i-1][j-arr[i-1]] || t[i-1][j];
+}
+else{
+    t[i][j] = t[i-1][j];
+}
+ }
+}
+ int mn = INT_MAX;
+ for(int i=0;i<=sum/2;i++){
+     if(t[n][i]){
+         mn = min(mn,sum-(2*i));
+     }
+ }
+ return mn; 
+	} 
+};
 
   
