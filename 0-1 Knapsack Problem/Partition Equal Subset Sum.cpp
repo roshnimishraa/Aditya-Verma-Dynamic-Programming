@@ -2,6 +2,15 @@ Problem Link : https://practice.geeksforgeeks.org/problems/subset-sum-problem201
 
 Approach : Subset Sum + Even sum partition 
 
+Eg. Input: N = 4
+arr = {1, 5, 11, 5}
+Output: YES
+Explanation: 
+The two parts are {1, 5, 5} and {11}.
+  Here sum of array elements = 22 which is even that means it can be divided into two parts 
+if in array there exist sum/2(find using subset sum) exist it implies that remaining sum/2 will also present in this case return true
+
+
 Time Complexity: O(sum * N) 
 Auxiliary Space: O(sum * N)
   
