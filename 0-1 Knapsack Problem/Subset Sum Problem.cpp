@@ -7,7 +7,7 @@ Auxiliary Space: O(sum*n), as the size of the 2-D array is sum*n.
 
 class Solution{   
 public:
-int t[101][10005];
+bool t[101][10005];
     bool isSubsetSum(vector<int>arr, int sum){
     //base condition 
     // if sum == 0 then output will be empty set -> true
