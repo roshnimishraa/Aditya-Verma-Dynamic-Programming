@@ -32,51 +32,42 @@ Now, this problem reduce to subset sum problem find no of subset equal to sum(S1
 Count number of subset with given difference -> reduces to -> count of subset sum 
 
 #include <bits/stdc++.h> 
+long long mod = 1e9+7;
+int countSubsetSum(int n,int sum,vector<int> &arr){
+int t[n+1][sum+1];
 
-int count(vector<int>& arr,int n,int sum){
-
-    int dp[n+1][sum+1];
-
-    int mod=(int)(1e9+7);
-
-    for(int i=0;i<=n;i++){
-
-        for(int j=0;j<=sum;j++){
-
-            dp[i][j]=0;
-
+//initialization
+for(int i=0;i<n+1;i++){
+    for(int j=0;j<sum+1;j++){
+        if(i==0){
+            t[i][j] = 0;
         }
-
-    }
-
-    dp[0][0]=1;
-
-    for(int i=1;i<=n;i++){
-
-        for(int j=0;j<=sum;j++){
-
-            if(arr[i-1]<=j)
-
-                dp[i][j]=(dp[i-1][j-arr[i-1]]+dp[i-1][j])%mod;
-
-            else dp[i][j]=dp[i-1][j];
-
+        if(j==0){
+            t[i][j] = 1;
         }
-
     }
-  return dp[n][sum];
-
+} 
+for(int i=1;i<n+1;i++){
+    for(int j=0;j<sum+1;j++){
+    if(arr[i-1] <= j){
+    t[i][j] = (t[i-1][j-arr[i-1]] + t[i-1][j]) % mod;
+    }
+    else{
+        t[i][j] = t[i-1][j] ;
+    }
+    }
 }
-
+return t[n][sum];
+}
 int countPartitions(int n, int d, vector<int> &arr) {
-
-    int sum=0;
-
-    for(int i:arr)sum=(sum+i)%(int)(1e9+7);
- int wanted=(sum+d)/2;
-
+   int sum=0;
+   for(int i=0;i<n;i++){
+sum = (sum+arr[i])%mod;
+   }
+   int s1= (sum+d)/2;
     if((d+sum)%2 != 0) return 0;
-
-    return count(arr,n,wanted);
-
+   return countSubsetSum(n, s1, arr);
 }
+
+
+v
