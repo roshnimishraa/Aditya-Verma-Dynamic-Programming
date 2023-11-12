@@ -1,4 +1,4 @@
-Problem Link : https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
+Problem Link : https://tinyurl.com/2b5wo5jq
 
 Approach : Top - Down  
 
