@@ -14,60 +14,53 @@ if in array there exist sum/2(find using subset sum) exist it implies that remai
 Time Complexity: O(sum * N) 
 Auxiliary Space: O(sum * N)
   
+
 class Solution{
-public:
-int t[101][10007];
-
-bool subsetSum(int n,int arr[],int sum)
-{
-    //initialization
-for(int i=0;i<n+1;i++){
-    for(int j=0;j<sum+1;j++){
-        if(i==0){
-            t[i][j] = false;
+    bool subsetSum(int n,int arr[],int sum)
+    {
+        bool t[n+1][sum+1];
+        //initialization 
+    for(int i=0;i<n+1;i++){
+        for(int j=0;j<sum+1;j++){
+            if(i==0){
+                t[i][j] = false;
+            }
+            if(j==0){
+                t[i][j] = true;
+            }
         }
-        // if sum(j) is 0 o/p can be empty subset 
-    if(j==0){
-        t[i][j] = true;
     }
-    }
-}
-
-for(int i=1;i<n+1;i++){
-    for(int j=1;j<sum+1;j++){
-      if(j>= arr[i-1]){
+    
+    for(int i=1;i<n+1;i++){
+        for(int j=1;j<sum+1;j++){
+        if(arr[i-1] <= j){
     t[i][j] = t[i-1][j-arr[i-1]] || t[i-1][j];
-}
-else {
-    t[i][j] =t[i-1][j];
-}  
+        }
+    else{
+        t[i][j] = t[i-1][j];
     }
-}
-
-return t[n][sum];
-}
+        }
+    }
+    return t[n][sum];
+    }
+public:
     int equalPartition(int n, int arr[])
     {
-        int sum=0;
-        // initialization
- //array sum should be even for partition 
-for(int i=0;i<n;i++){
-    sum += arr[i];
+     int sum=0;
+    for(int i=0;i<n;i++){
+        sum+=arr[i];
+    }
+    bool isEqual =false;
+    if(sum % 2 !=0){
+        return 0;
+    }
+else if(sum% 2 == 0){
+    isEqual = subsetSum(n,arr,sum/2);
 }
-bool isEqual = false;
-if(sum % 2 != 0){
-    return 0;
+if(isEqual){
+    return 1;
 }
-// sum is even now it becomes subset sum problem 
-//now check that in array if sum/2 is present or not 
-// eg. sum = 22 if are able to find 11 that means rem 11 is also present
-
-else if(sum % 2 == 0) {
-     isEqual =  subsetSum(n,arr,sum/2);
-}
-  if(isEqual){
-      return 1;
-  }
- return 0;
+return 0;
+    
     }
 };
