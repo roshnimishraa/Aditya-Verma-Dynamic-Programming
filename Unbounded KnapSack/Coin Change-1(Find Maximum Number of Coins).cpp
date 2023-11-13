@@ -2,6 +2,9 @@ Problem Link : https://practice.geeksforgeeks.org/problems/coin-change2448/1
 
 Find : Maximum number of ways of coins to make a given sum
 
+Approach : Similar to Count of subset sum (0/1 knapSack Problem) to find maximum number of ways add both TAKE + NOT_TAKE Choices 
+    
+
 Eg. coins[] = {1, 2, 3}
     sum : 5
 O/P : 5 
