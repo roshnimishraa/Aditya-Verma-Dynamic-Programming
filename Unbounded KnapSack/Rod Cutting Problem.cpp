@@ -5,6 +5,8 @@ stored they need not be recalculated.
 Auxiliary Space: O(n2) where ‘N’ is the length of the rod.Since we are using a 2 - D array of 
 size (N + 2) rows and (N + 2) columns, therefore, overall space complexity will be O(N ^ 2).
 
+  Approach : Unbounded KnapSack
+
 class Solution{
   public:
     int cutRod(int price[], int n) {
