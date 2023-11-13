@@ -6,9 +6,9 @@ There are two possibility to choose an item
 2. Take -> Not processed -> It is sure that it can be again taken therefore this item is not processed
 
 >> Variations of Unbounded KnapSack
-1. Rod Cutting
-2. Coin Change - I 
-3. Coin Change - II
+1. Rod Cutting -> Approach using Unbounded knapsack
+2. Coin Change - I -> find maximum number of ways 
+3. Coin Change - II -> find minimum number of coins 
 4. Maximum Ribbon Cut 
 
 >> Unbounded Code 
