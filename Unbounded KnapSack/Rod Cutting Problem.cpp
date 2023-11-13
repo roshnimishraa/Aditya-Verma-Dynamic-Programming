@@ -6,6 +6,7 @@ Auxiliary Space: O(n2) where ‘N’ is the length of the rod.Since we are using
 size (N + 2) rows and (N + 2) columns, therefore, overall space complexity will be O(N ^ 2).
 
   Approach : Unbounded KnapSack
+Find : Maximum Profit 
 
 class Solution{
   public:
