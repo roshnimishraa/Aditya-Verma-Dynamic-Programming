@@ -9,7 +9,7 @@ O/P : 4
     
 Recursive Approach 
 
-Time Complexity: O(2m*n)
+Time Complexity: O(2^m*n)
 Auxiliary Space: O(1)
 
 class Solution
@@ -36,7 +36,9 @@ class Solution
 };
 
 Memoization Approach 
-// function to find longest common subsequence
+
+Time Complexity: O(m * n) where m and n are the string lengths.
+Auxiliary Space: O(m * n) Here the recursive stack space is ignored.
 
 class Solution
 {
