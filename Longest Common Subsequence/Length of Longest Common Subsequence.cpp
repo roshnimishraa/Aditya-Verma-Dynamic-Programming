@@ -70,7 +70,9 @@ return t[m][n] = max(helper(n,  m-1, s1,  s2) ,helper(n-1,  m, s1,  s2));
 };
 
 Tabulation Method 
-// function to find longest common subsequence
+
+Time Complexity: O(m * n) which is much better than the worst-case time complexity of Naive Recursive implementation. 
+Auxiliary Space: O(m * n) because the algorithm uses an array of size (m+1)*(n+1) to store the length of the common substrings.
 
 class Solution
 {
