@@ -9,6 +9,9 @@ O/P : 4
     
 Recursive Approach 
 
+Time Complexity: O(2m*n)
+Auxiliary Space: O(1)
+
 class Solution
 {
     public:
