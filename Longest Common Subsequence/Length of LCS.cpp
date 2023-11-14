@@ -2,6 +2,11 @@ Problem Link : https://tinyurl.com/28bndgkf
 
 Find : Length of Longest Common Subsequence 
 
+Eg. X : a b c d g h 
+    Y : a b e d f h 
+a b d h
+O/P : 4
+    
 Recursive Approach 
 
 class Solution
