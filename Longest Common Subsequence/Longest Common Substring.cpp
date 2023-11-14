@@ -6,6 +6,8 @@ is the length of X and Y string.
 Auxiliary Space: O(1): as the function call is not using any extra space (function is just using a recursive call 
 stack which we generally doesn’t consider in auxiliary space).
 
+Approach : Tabulation Method 
+
 class Solution{
     public:
   int longestCommonSubstr (string s1, string s2, int n, int m)
