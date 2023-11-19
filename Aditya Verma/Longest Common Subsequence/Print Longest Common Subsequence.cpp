@@ -46,7 +46,7 @@ while(i>0 && j>0){
     }
     // str1 != str2 
     else{
-    // store and assign max 
+    // don't store uncommon string and assign max 
         if(t[i][j-1] > t[i-1][j])
         {
             j--;
