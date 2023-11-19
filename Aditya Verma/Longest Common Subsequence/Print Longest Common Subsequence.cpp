@@ -39,14 +39,15 @@ return t[m][n];
 while(i>0 && j>0){
     if(str1[i-1] == str2[j-1])
     {
-        // store common 
+ //if string are matching then store only one occurance of string 
         s.push_back(str1[i-1]);
         i--;
         j--;
     }
     // str1 != str2 
     else{
-    // don't store uncommon string and assign max 
+// if string are not matching but present in both str1 and str2 then
+//doesn't add any string
         if(t[i][j-1] > t[i-1][j])
         {
             j--;
