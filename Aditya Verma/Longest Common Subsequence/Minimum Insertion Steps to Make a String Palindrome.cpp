@@ -1,4 +1,4 @@
-Minimum insertion of a LPS = str2.length() - LCS
+No. of deletion == No. of Insertion => str.length()-LCS
 
 class Solution {
 public:
