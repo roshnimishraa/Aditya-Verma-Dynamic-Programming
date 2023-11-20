@@ -1,6 +1,8 @@
 Problem Link : https://leetcode.com/problems/minimum-deletions-to-make-string-balanced/description/
 
 >> Observation 
+No. of deletion == No. of Insertion => str.length()-LCS
+
 1. Length of LPS(Longest Palindromic Subsequence) inversely propotional to No. of Deletion 
 
 2. If length of LPS is greater then No. of Deletion is minimum 
