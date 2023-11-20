@@ -1,4 +1,7 @@
 Matrix Chain Multiplication 
+
+Given : string or arr 
+
 1. MCM 
 2. Printing MCM
 3. Printing expression to true/ Boolean Parenthensization 
