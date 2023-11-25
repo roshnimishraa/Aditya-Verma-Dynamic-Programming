@@ -1,3 +1,17 @@
+  cost = Miniumm number of Multiplication 
+  Size of Matrix = size of array - 1 = n-1 
+
+Eg. arr[] = { 40, 20, 30, 10, 30} 
+    Ai = arr[i-1] * arr[i] 
+    size of matrix = n-1 = 5 - 1 = 4
+  A1 = arr[0] * arr[1] = 40 * 20 
+  A2 = arr[1] * arr[2] = 20 * 30 
+  A3 = arr[2] * arr[3] = 30 * 10 
+  A4 = arr[3] * arr[4] = 10 * 30 
+
+Logic : Put bracket everywhere solve it recursively and find minimum cost 
+take i = 1, j = arr.size() - 1 
+
 Approach 1 : Recursive 
 
 steps 
