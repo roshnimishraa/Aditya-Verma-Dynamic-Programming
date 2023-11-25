@@ -1,4 +1,4 @@
-IN memoization the matrix t[]..t[][] ...t[][][] represents -> No. of variable that are changing in function call
+In memoization the matrix t[]..t[][] ...t[][][] represents -> No. of variable that are changing in function call
 
 Format : 
 
@@ -14,8 +14,10 @@ int solve(int arr[],int i,int j)
 //base case 
 if(i>j) return 0
 
+//break into k
 for(int k=i;k<j;k++) 
 {
+
 //calculate temp ans 
 temp_ans = solve(arr,i,k) + solve(arr,k+1,j) 
 //calculate ans 
@@ -23,3 +25,14 @@ temp_ans = solve(arr,i,k) + solve(arr,k+1,j)
 }
 return ans
   }
+
+
+>> Base Condition 
+1. Think of the Smallest Valid Input 
+2. Think of Invalid Input 
+
+
+
+
+
+
