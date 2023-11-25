@@ -12,61 +12,82 @@ Eg. arr[] = { 40, 20, 30, 10, 30}
 Logic : Put bracket everywhere solve it recursively and find minimum cost 
 take i = 1, j = arr.size() - 1 
 
+Invalid Input 
+1. i > j => size 0 
+2. i == j => size 1 
+if(i>= j) return 0 
+
+Algorithm 
+1. Find i and j value => i = 1, j = n-1 
+2. Find Base Condition 
+3. move k -> i to j 
+What should be K value there are two options 
+i) k = i to j-1 then it can be partition into two parts such as (a) i to k (b) k+1 to j  
+or 
+ii) k = i+1 to j then it can be partition into two parts such as (a) i to k-1 (b) k to j 
+4. Find temp ans 
+  solve(arr,i, k) + solve(arr,k+1,j) + cost 
+
+cost = arr[i-1] * arr[k] * arr[j] 
+
+5. Calculate ans <- temp ans 
+return min cost 
+initialize mini = INT_MAX 
+if(mini > temp) mini = temp 
+return mini 
+
 Approach 1 : Recursive 
 
-steps 
-1. find i and j value 
-2. find base condition 
-3. move k -> i to j
-option 1 : k = i to j-1 -> for(i to k) and for(k+1 to j)
-option 2 : k = i+1 to j -> for(i to k-1) and (k to j) 
-
-int solve(int arr[],int i,int j) 
-{
-  if(i>=j) return 0;
-  int mn = INT_MAX;
-  for(int k=i;k<=j-1;k++){
-    int temp_ans = solve(arr,i,k) + solve(arr,k+1,j) + arr[i-1] * arr[k] * arr[j];
-    if(temp_ans < mn) {
-    mn = temp;
-    }
-  }
-  return mn;
-}
-
-Approach 2 : Memoization (Bottom-Up Approach) 
-
-  // User function Template for C++
-
 class Solution{
-    
 public:
-int t[501][501];
-int helper(int arr[],int i,int j)
-{
-    int mn = INT_MAX;
-    //base condition
-    if(i>=j) return 0;
-    if(t[i][j] != -1) return t[i][j];
-//move k 
-for(int k = i; k<=j-1;k++)
-{
-    int temp_ans = helper(arr,i,k) + helper(arr,k+1,j)+
-                    arr[i-1]*arr[k]*arr[j];
-
-    if(temp_ans < mn)
-    {
-        mn =temp_ans;
+int solve(int arr[],int i,int j){
+    // base case 
+    if(i>= j) {
+        return 0;
     }
-    
+int mini = INT_MAX;    
+// move k -> i to j-1
+for(int k = i;k<=j-1;k++){
+    int cost = arr[i-1] * arr[k] * arr[j];
+int temp_ans = solve(arr,i,k) + solve(arr,k+1,j) + cost;
+if(temp_ans < mini){
+    mini = temp_ans;
 }
-return t[i][j]=mn;
 }
-    int matrixMultiplication(int N, int arr[])
+return mini;
+}
+    int matrixMultiplication(int n, int arr[])
     {
-        memset(t,-1,sizeof(t));
-   return  helper(arr,1,N-1);
+return solve(arr,1,n-1);
     }
 };
 
+Approach 2 : Memoization (Bottom-Up Approach) 
+
+class Solution{
+public:
+int t[501][501];
+int solve(int arr[],int i,int j){
+    // base case 
+    if(i>= j) {
+return 0;
+    }
+    if(t[i][j] != -1) return t[i][j];
+int mini = INT_MAX;    
+// move k -> i to j-1
+for(int k = i;k<=j-1;k++){
+    int cost = arr[i-1] * arr[k] * arr[j];
+int temp_ans = solve(arr,i,k) + solve(arr,k+1,j) + cost;
+if(temp_ans < mini){
+    mini = temp_ans;
+}
+}
+return t[i][j] = mini;
+}
+    int matrixMultiplication(int n, int arr[])
+    {
+        memset(t,-1,sizeof(t));
+return solve(arr,1,n-1);
+    }
+};
   
